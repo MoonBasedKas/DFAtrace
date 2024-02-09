@@ -16,15 +16,15 @@ class DFA:
         States = {}
         z = []
         fp = open(file)
-        z = fp.readlines()
+        z = fp.readlines()[1:] # We don't need the first line.
         for line in range(len(z)):
-            # this is a bit ugly.
             States[line] = DFAstate(line, z[line].split(" ")[0], z[line].split(" ")[1])
 
         for x in range(len(z)):
             States[x].anext = States[States[x].a]
             States[x].bnext = States[States[x].b]
-        
+
+        self.start = States[0]
 
 
 
@@ -46,6 +46,8 @@ class DFAstate:
 
 def main():
     Machine = DFA("DFA.txt")
+
+    print(Machine.start.bnext.bnext.name)
     pass
 
 

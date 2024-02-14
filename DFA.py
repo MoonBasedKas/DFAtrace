@@ -65,16 +65,20 @@ def DFATrace(M, S = "", trace = []):
     
     Sa = S + "a"
     Sb = S + "b"
+
     trace.append(M.name)
+
+    Ta = [] + trace
+    Tb = [] + trace
 
     print("\t" * len(S), end="")
     print("if a:")
-    DFATrace(M.anext, Sa, trace)
+    DFATrace(M.anext, Sa, Ta)
 
 
     print("\t" * len(S), end="") 
     print("if b:")
-    DFATrace(M.bnext, Sb, trace) # There is an issue with this part. Doesn't do a trace here. It's probably because trace isn't being reset.
+    DFATrace(M.bnext, Sb, Tb) 
     return ""
 
 

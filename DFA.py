@@ -83,8 +83,11 @@ def DFATrace(M, S = "", trace = []):
 
 
 def main():
+    # You'll most likely need to modify this to the file you are going to read.
     Machine = DFA("hw2test.txt")
+    # Machine2 = DFA("DFA.txt")
     DFATrace(Machine.start)
+    # DFATrace(Machine2.start)
 
 
 if __name__ == "__main__":
